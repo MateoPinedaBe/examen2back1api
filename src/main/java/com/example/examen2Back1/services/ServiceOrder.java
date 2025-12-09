@@ -38,16 +38,16 @@ public class ServiceOrder {
 
         if (optionalBranch.isPresent()) {
             Order existing = optionalBranch.get();
-            existing.setDateOrder(existing.getDateOrder());
-            existing.setActive(existing.getActive());
-            existing.setOrderStatus(existing.getOrderStatus());
-            existing.setTotalOrder(existing.getTotalOrder());
-            existing.setClientNotes(existing.getClientNotes());
-            existing.setFollowingNumber(existing.getFollowingNumber());
-            existing.setPaymentMethod(existing.getPaymentMethod());
-            existing.setSendingAdress(existing.getSendingAdress());
-            existing.setShipmentCost(existing.getShipmentCost());
-            existing.setShipmentRoute(existing.getShipmentRoute());
+            existing.setDateOrder(updatedOrder.getDateOrder());
+            existing.setActive(updatedOrder.getActive());
+            existing.setOrderStatus(updatedOrder.getOrderStatus());
+            existing.setTotalOrder(updatedOrder.getTotalOrder());
+            existing.setClientNotes(updatedOrder.getClientNotes());
+            existing.setFollowingNumber(updatedOrder.getFollowingNumber());
+            existing.setPaymentMethod(updatedOrder.getPaymentMethod());
+            existing.setSendingAdress(updatedOrder.getSendingAdress());
+            existing.setShipmentCost(updatedOrder.getShipmentCost());
+            existing.setShipmentRoute(updatedOrder.getShipmentRoute());
             return orderRepository.save(existing);
         }
         return null;
