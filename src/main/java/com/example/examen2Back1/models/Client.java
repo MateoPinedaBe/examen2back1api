@@ -147,4 +147,22 @@ public class Client {
     public void setCodigoPostal(String codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", nombreCliente='" + nombreCliente + '\'' +
+                ", tipoDocumento='" + tipoDocumento + '\'' +
+                ", numeroDocumneto='" + numeroDocumneto + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", email='" + email + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", genero='" + genero + '\'' +
+                ", tipoCliente='" + tipoCliente + '\'' +
+                ", codigoPostal='" + codigoPostal + '\'' +
+                ", order=" + order +
+                '}';
+    }
 }

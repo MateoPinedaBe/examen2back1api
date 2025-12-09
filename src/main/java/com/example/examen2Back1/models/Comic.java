@@ -3,6 +3,8 @@ package com.example.examen2Back1.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "comics")
@@ -40,6 +42,9 @@ public class Comic {
 
     @Column(length = 40)
     private String isbn;
+
+    @ManyToMany(mappedBy = "comic", fetch = FetchType.LAZY)
+    private List<Order> orders = new ArrayList<>();
 
     public Comic() {
     }
@@ -144,5 +149,23 @@ public class Comic {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    @Override
+    public String toString() {
+        return "Comic{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", editorial='" + editorial + '\'' +
+                ", fechaPublicacion=" + fechaPublicacion +
+                ", stock=" + stock +
+                ", genero='" + genero + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", numeroEdicion='" + numeroEdicion + '\'' +
+                ", imagenPortada='" + imagenPortada + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", orders=" + orders +
+                '}';
     }
 }

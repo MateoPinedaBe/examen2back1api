@@ -1,10 +1,13 @@
 package com.example.examen2Back1.models;
 
 import com.example.examen2Back1.models.Client;
+import com.example.examen2Back1.models.Comic;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_orders")
@@ -65,6 +68,16 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_client", nullable = false)
     private Client client;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "pedido_comic",
+            joinColumns = @JoinColumn(name = "pedido_id"),
+            inverseJoinColumns = @JoinColumn(name = "comic_id")
+    )
+    private List<Comic> comics = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
 
     // Getters and Setters
 
@@ -142,5 +155,23 @@ public class Order {
 
     public void setFollowingNumber(String followingNumber) {
         this.followingNumber = followingNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", sendingAdress='" + sendingAdress + '\'' +
+                ", dateOrder=" + dateOrder +
+                ", orderStatus='" + orderStatus + '\'' +
+                ", totalOrder=" + totalOrder +
+                ", paymentMethod='" + paymentMethod + '\'' +
+                ", clientNotes='" + clientNotes + '\'' +
+                ", shipmentCost=" + shipmentCost +
+                ", active=" + active +
+                ", followingNumber='" + followingNumber + '\'' +
+                ", client=" + client +
+                ", comics=" + comics +
+                '}';
     }
 }
