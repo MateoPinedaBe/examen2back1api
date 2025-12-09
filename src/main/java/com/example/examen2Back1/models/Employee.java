@@ -42,12 +42,15 @@ public class Employee {
     @Column
     private String DNI;
 
+    @Column
+    private String likes;
+
     // Constructors
 
     public Employee() {
     }
 
-    public Employee(String name, String lastName, String email, String phone, LocalDate signingDate, String position, BigDecimal salary, LocalDate birthDate, String DNI) {
+    public Employee(String name, String lastName, String email, String phone, LocalDate signingDate, String position, BigDecimal salary, LocalDate birthDate, String DNI, String likes) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -57,6 +60,7 @@ public class Employee {
         this.salary = salary;
         this.birthDate = birthDate;
         this.DNI = DNI;
+        this.likes = likes;
     }
 
     // Getters and Setter
@@ -137,6 +141,14 @@ public class Employee {
         this.DNI = DNI;
     }
 
+    public String getLikes() {
+        return likes;
+    }
+
+    public void setLikes(String likes) {
+        this.likes = likes;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -150,6 +162,7 @@ public class Employee {
                 ", salary=" + salary +
                 ", birthDate=" + birthDate +
                 ", DNI='" + DNI + '\'' +
+                ", likes='" + likes + '\'' +
                 '}';
     }
 }
