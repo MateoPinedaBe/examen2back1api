@@ -79,7 +79,7 @@ public class Order {
             joinColumns = @JoinColumn(name = "pedido_id"),
             inverseJoinColumns = @JoinColumn(name = "comic_id")
     )
-    private List<Comic> comics = new ArrayList<>();
+    private List<Comic> comic = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
 
@@ -175,7 +175,7 @@ public class Order {
 
 
     public List<Comic> getComics() {
-        return comics;
+        return comic;
     }
 
     @Override
@@ -193,7 +193,7 @@ public class Order {
                 ", followingNumber='" + followingNumber + '\'' +
                 ", shipmentRoute='" + shipmentRoute + '\'' +
                 ", client=" + client +
-                ", comics=" + comics +
+                ", comics=" + comic +
                 '}';
     }
 }
